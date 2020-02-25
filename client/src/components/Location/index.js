@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-function location (){
+function Location(){
     return (
 $("#location-button").click(function(e) {
     e.preventDefault();
