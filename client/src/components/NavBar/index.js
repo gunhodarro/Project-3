@@ -50,13 +50,13 @@ function NavBar() {
           <li class="nav-item">
             <Link class="nav-link signIn" to="/signin">
               <img
-                src="https://fontmeme.com/permalink/200218/ec182f8ccb87861ddfd53e4d6bcbaf97.png"
+                src="https://fontmeme.com/permalink/200303/5ab3165ad068110b4db639d2d573fe7c.png" 
                 alt="the-forest-video-game-font"
                 border="0"
               ></img>
             </Link>
           </li>
-          <li class="nav-item dropdown">
+          {/* <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -82,7 +82,7 @@ function NavBar() {
                 Receive Donations
               </Link>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>
