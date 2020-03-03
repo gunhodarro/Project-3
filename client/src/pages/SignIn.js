@@ -9,6 +9,7 @@ function Signin() {
         <>
         <NavBar />
          <Header />
+         
          <Footer />
         
         </>
