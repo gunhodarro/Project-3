@@ -9,6 +9,7 @@ function Give() {
         <>
         <NavBar />
          <Header />
+         <h1>Give page</h1>
          <Footer />
         
         </>
