@@ -9,6 +9,7 @@ function Receive() {
         <>
         <NavBar />
          <Header />
+         <h1>Receive Page</h1>
          <Footer />
         
         </>
