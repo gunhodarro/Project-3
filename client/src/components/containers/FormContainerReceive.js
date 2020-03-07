@@ -104,7 +104,7 @@ class FormContainer extends Component {
         <h5>Food Donation Form</h5>
         <SingleInput
           inputType={"text"}
-          title={"Full Name"}
+          title={"Contact Name"}
           name={"name"}
           controlFunc={this.handleFullNameChange}
           content={this.state.ownerName}
@@ -112,7 +112,7 @@ class FormContainer extends Component {
         />
         <SingleInput
           inputType={"text"}
-          title={"Business Name"}
+          title={"Non-Profit Name"}
           name={"business"}
           controlFunc={this.handleBusinessNameChange}
           content={this.state.businessName}
@@ -120,23 +120,14 @@ class FormContainer extends Component {
         />
         <SingleInput
           inputType={"text"}
-          title={"Business Address"}
+          title={"Non-profit Address"}
           name={"businessAddress"}
           controlFunc={this.handleBusinessAddressChange}
           content={this.state.businessAddress}
           placeholder={"Type business address here"}
         />
         
-        <CheckboxOrRadioGroup
-          title={
-            "Which kinds of foods would you like to donate/receive donations of?"
-          }
-          setName={"foods"}
-          type={"checkbox"}
-          controlFunc={this.handleFoodSelection}
-          options={this.state.foodSelections}
-          selectedOptions={this.state.selectedFoods}
-        />
+        
         <input
           type="submit"
           className="btn btn-primary float-right"

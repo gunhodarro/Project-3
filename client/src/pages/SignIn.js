@@ -54,26 +54,26 @@ firebase.initializeApp({
           <h1>Welcome { firebase.auth().currentUser.displayName }</h1>
           <img alt="user" src={ firebase.auth().currentUser.photoURL }/>
           <Row>
-            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+            <Card body inverse style={{ backgroundColor: '#e0cf2e', borderColor: 'white' }}>
             
-                  <CardText>I have food to donate and want to be matched with people in need.</CardText>
+        <CardText className="cardText">I have food to donate and want to be matched with people in need.</CardText>
                     <Link to ='/Give'>
-                      <Button>Give!</Button>
+                      <Button className="button2">Give!</Button>
                     </Link>
             </Card>
 
-            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+            <Card body inverse style={{ backgroundColor: '#e0cf2e', borderColor: 'white' }}>
              
-                  <CardText>I am a non-profit and want to be matched with donations</CardText>
-                  <Link to = '/Receive'>
-                    <Button>Recieve!</Button>
+        <CardText className="cardText">I am a non-profit and want to be matched with donations {'          '}</CardText>
+                  <Link to = '/Receive'> 
+                    <Button className="button2">Recieve!</Button>
                   </Link>
             </Card>
-            <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+            <Card body inverse style={{ backgroundColor: '#e0cf2e', borderColor: 'white'}}>
             
-              <CardText>I want to read more about this amazing company.</CardText>
+              <CardText className="cardText">I want to read more about this amazing company.</CardText>
               <Link to = '/'>
-              <Button>Home!</Button>
+              <Button className="button2">Home!</Button>
               </Link>
             </Card>
             </Row>
