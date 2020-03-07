@@ -19,3 +19,7 @@
   to { transform: rotate(360deg); }
 }
 
+.home .mapp {
+  width: 5%;
+  height: 5%;
+}
