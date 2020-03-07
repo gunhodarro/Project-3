@@ -19,7 +19,19 @@
   to { transform: rotate(360deg); }
 }
 
-.home .mapp {
-  width: 5%;
-  height: 5%;
+
+ .cardText{
+color: darkgreen;
+background-color:#e0cf2e;
+font-size: 18px;
+
+}
+
+
+.button2{
+  background-color: darkgreen;
+  color: white;
+  width: 100px;
+  height: 50px;
+>>>>>>> 73b1a051e97d22ab03abbb3242d71d9417e038ef
 }
