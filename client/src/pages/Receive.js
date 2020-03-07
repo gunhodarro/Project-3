@@ -3,7 +3,7 @@ import React from "react";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import FormContainer from "../components/containers/FormContainer";
+import FormContainerReceive from "../components/containers/FormContainerReceive";
 
 function Receive() {
   return (
@@ -11,7 +11,7 @@ function Receive() {
       <NavBar />
       <Header />
       <h1>Receive Page</h1>
-      <FormContainer />
+      <FormContainerReceive />
       <Footer />
     </>
   );
