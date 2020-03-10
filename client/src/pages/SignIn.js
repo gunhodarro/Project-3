@@ -54,7 +54,7 @@ firebase.initializeApp({
           <h1>Welcome { firebase.auth().currentUser.displayName }</h1>
           <img alt="user" src={ firebase.auth().currentUser.photoURL }/>
           <Row>
-            <Card body inverse style={{ backgroundColor: '#e0cf2e', borderColor: 'white' }}>
+            <Card className="card" body inverse style={{ backgroundColor: "#e0cf2e" }}>
             
         <CardText className="cardText">I have food to donate and want to be matched with people in need.</CardText>
                     <Link to ='/Give'>
@@ -62,14 +62,14 @@ firebase.initializeApp({
                     </Link>
             </Card>
 
-            <Card body inverse style={{ backgroundColor: '#e0cf2e', borderColor: 'white' }}>
+            <Card body inverse style={{ backgroundColor: "#e0cf2e" }}>
              
         <CardText className="cardText">I am a non-profit and want to be matched with donations {'          '}</CardText>
                   <Link to = '/Receive'> 
                     <Button className="button2">Recieve!</Button>
                   </Link>
             </Card>
-            <Card body inverse style={{ backgroundColor: '#e0cf2e', borderColor: 'white'}}>
+            <Card body inverse style={{ backgroundColor: "#e0cf2e"}}>
             
               <CardText className="cardText">I want to read more about this amazing company.</CardText>
               <Link to = '/'>

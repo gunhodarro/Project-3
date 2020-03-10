@@ -17,7 +17,7 @@ export class MapContainer extends React.Component {
 
         const {x, y} = this.state
         const style = {
-          width: '30%',
+          width: '100%',
           height: '30%',
       }
       const pos1 = {lat: 39.685280, lng: -105.016040}

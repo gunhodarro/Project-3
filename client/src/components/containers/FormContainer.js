@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CheckboxOrRadioGroup from "../CheckboxOrRadioGroup";
 import SingleInput from "../SingleInput";
 import Select from "../Select";
-
+import "../../App.css"
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -104,32 +104,34 @@ class FormContainer extends Component {
         <h5>Food Donation Form</h5>
         <SingleInput
           inputType={"text"}
-          title={"Full Name"}
+          // title={"Contact Name"}
           name={"name"}
           controlFunc={this.handleFullNameChange}
           content={this.state.ownerName}
-          placeholder={"Type first and last name here"}
+          placeholder={"first and last name"}
+          className="inputArea"
+          
         />
         <SingleInput
           inputType={"text"}
-          title={"Business Name"}
+          // title={"Non-Profit Name"}
           name={"business"}
           controlFunc={this.handleBusinessNameChange}
           content={this.state.businessName}
-          placeholder={"Type business name here"}
+          placeholder={"Non-Profit name"}
         />
-        <SingleInput
+        <SingleInput 
           inputType={"text"}
-          title={"Business Address"}
+          // title={"Non-Profit Address"}
           name={"businessAddress"}
           controlFunc={this.handleBusinessAddressChange}
           content={this.state.businessAddress}
-          placeholder={"Type business address here"}
+          placeholder={"Non-Profit address"}
         />
         
-        <CheckboxOrRadioGroup
+        {/* <CheckboxOrRadioGroup
           title={
-            "Which kinds of foods would you like to donate/receive donations of?"
+            "Which kinds of foods would you like to donate?"
           }
           setName={"foods"}
           type={"checkbox"}
@@ -147,7 +149,8 @@ class FormContainer extends Component {
           onClick={this.handleClearForm}
         >
           Clear form
-        </button>
+        </button> */}
+        <input class="textArea" type="textarea" placeholder="Type a breif summary of available foods" ></input>
       </form>
     );
   }

@@ -21,8 +21,8 @@
 
 
  .cardText{
-color: darkgreen;
-background-color:#e0cf2e;
+   color:black;
+   /* background-color:darkgreen; */
 font-size: 18px;
 
 }
@@ -37,6 +37,29 @@ font-size: 18px;
 }
 
 .mapp {
-  margin-top: 20%;
-  z-index: -1;
+
+   margin: 0% 0% 0% 0%;
+  
+
+
+
+  
 }
+
+.card{
+border: none;
+background-color: #0375B4;
+}
+
+.container{
+  text-align: center;
+}
+
+.textArea{
+  height: 200px;
+  width: 30%;
+}
+
+.form-input{
+  width: 30%;
+
