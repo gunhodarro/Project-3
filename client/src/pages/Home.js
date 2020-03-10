@@ -10,8 +10,9 @@ function Home(){
     return (
         <div className="Home">
         <NavBar />
-        
+        <div className="mapp">
         <Location />
+        </div>
         
          <Header />
          
