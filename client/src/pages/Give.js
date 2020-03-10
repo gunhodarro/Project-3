@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom' 
+import { Button } from 'reactstrap'
 import Header from "../components/Header"
 import NavBar from "../components/NavBar"
 import Footer from  "../components/Footer"
@@ -11,7 +12,8 @@ function Give() {
         <NavBar />
          <Header />
          <h1>Give page</h1>
-        <FormContainer />
+         <FormContainer />
+         <Link to = '/Donations'><Button className="button2">Go to Donations</Button></Link>
          <Footer />
         
         </>

@@ -1,4 +1,4 @@
-import { GoogleApiWrapper, Map } from 'google-maps-react';
+import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import React from 'react'
  
 
@@ -19,9 +19,11 @@ export class MapContainer extends React.Component {
         const style = {
           width: '100%',
           height: '30%',
-      
-        
-        }
+      }
+      const pos1 = {lat: 39.685280, lng: -105.016040}
+      const pos2 = {lat: 39.8582746, lng:-104.9572632}
+      const pos3 = {lat: 39.6919655, lng:-104.9418203}
+      const pos4 = {lat: 39.7811828, lng:-104.8485205}
 
         return (
             <div>
@@ -35,6 +37,11 @@ export class MapContainer extends React.Component {
           }}
           zoom={10}
         >
+          
+          <Marker position={pos1} />
+          <Marker position={pos2} />
+          <Marker position={pos3} />
+          <Marker position={pos4} />
           </Map> :
           <></>
             }
