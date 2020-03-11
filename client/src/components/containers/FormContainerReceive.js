@@ -1,29 +1,23 @@
 import React, { Component } from "react";
-import CheckboxOrRadioGroup from "../CheckboxOrRadioGroup";
 import SingleInput from "../SingleInput";
-import Select from "../Select";
+// import { Link } from react-router-dom;
+import { Button } from "reactstrap";
 
-class FormContainer extends Component {
+class FormContainerReceive extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ownerName: "",
-      businessName: "",
-      businessAddress: "",
-      foodSelections: [],
-      selectedFoods: [],
-      businessOptions: [],
-      ownerBusinessTypeSelection: ""
+      name: "",
+      charityName: "",
+      charityAddress: ""
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleFullNameChange = this.handleFullNameChange.bind(this);
-    this.handleBusinessNameChange = this.handleBusinessNameChange.bind(this);
-    this.handleBusinessAddressChange = this.handleBusinessAddressChange.bind(
+    this.handleCharityName = this.handleCharityNameChange.bind(this);
+    this.handleCharityAddressChange = this.handleCharityAddressChange.bind(
       this
     );
-    this.handleBusinessTypeSelect = this.handleBusinessTypeSelect.bind(this);
-    this.handleFoodSelection = this.handleFoodSelection.bind(this);
   }
   componentDidMount() {
     fetch("./fake_db.json")
@@ -31,12 +25,8 @@ class FormContainer extends Component {
       .then(data => {
         this.setState({
           ownerName: data.ownerName,
-          businessName: data.businessName,
-          businessAddress: data.businessAddress,
-          foodSelections: data.foodSelections,
-          selectedFoods: data.selectedFoods,
-          businessOptions: data.businessOptions,
-          ownerBusinessTypeSelection: data.ownerBusinessTypeSelection
+          charityName: data.charityName,
+          charityAddress: data.charityAddress
         });
       });
   }
@@ -45,43 +35,22 @@ class FormContainer extends Component {
       console.log("name:", this.state.ownerName)
     );
   }
-  handleBusinessNameChange(e) {
-    this.setState({ businessName: e.target.value }, () =>
-      console.log("business name:", this.state.businessName)
+  handleCharityNameChange(e) {
+    this.setState({ charityName: e.target.value }, () =>
+      console.log("charity name:", this.state.charityName)
     );
   }
-  handleBusinessAddressChange(e) {
-    this.setState({ businessAddress: e.target.value }, () =>
-      console.log("business address:", this.state.businessAddress)
-    );
-  }
-  handleBusinessTypeSelect(e) {
-    this.setState({ ownerBusinessTypeSelection: e.target.value }, () =>
-      console.log("business type", this.state.ownerBusinessTypeSelection)
-    );
-  }
-  handleFoodSelection(e) {
-    const newSelection = e.target.value;
-    let newSelectionArray;
-    if (this.state.selectedFoods.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.selectedFoods.filter(
-        s => s !== newSelection
-      );
-    } else {
-      newSelectionArray = [...this.state.selectedFoods, newSelection];
-    }
-    this.setState({ selectedFoods: newSelectionArray }, () =>
-      console.log("pet selection", this.state.selectedFoods)
+  handleCharityAddressChange(e) {
+    this.setState({ charityAddress: e.target.value }, () =>
+      console.log("charity address:", this.state.charityAddress)
     );
   }
   handleClearForm(e) {
     e.preventDefault();
     this.setState({
       ownerName: "",
-      businessName: "",
-      businessAddress: "",
-      selectedFoods: [],
-      ownerBusinessTypeSelection: ""
+      charityName: "",
+      charityAddress: ""
     });
   }
   handleFormSubmit(e) {
@@ -89,10 +58,8 @@ class FormContainer extends Component {
 
     const formPayload = {
       ownerName: this.state.ownerName,
-      businessName: this.state.businessName,
-      businessAddress: this.state.businessAddress,
-      selectedFoods: this.state.selectedFoods,
-      ownerBusinessTypeSelection: this.state.ownerBusinessTypeSelection
+      charityName: this.state.charityName,
+      charityAddress: this.state.charityAddress
     };
 
     console.log("Send this in a POST request:", formPayload);
@@ -113,35 +80,32 @@ class FormContainer extends Component {
         <SingleInput
           inputType={"text"}
           title={"Non-Profit Name"}
-          name={"business"}
-          controlFunc={this.handleBusinessNameChange}
-          content={this.state.businessName}
-          placeholder={"Type business name here"}
+          name={"charity"}
+          controlFunc={this.handleCharityNameChange}
+          content={this.state.charityName}
+          placeholder={"Type charity name here"}
         />
         <SingleInput
           inputType={"text"}
           title={"Non-profit Address"}
-          name={"businessAddress"}
-          controlFunc={this.handleBusinessAddressChange}
-          content={this.state.businessAddress}
-          placeholder={"Type business address here"}
+          name={"charityAddress"}
+          controlFunc={this.handleCharityAddressChange}
+          content={this.state.charityAddress}
+          placeholder={"Type charity address here"}
         />
-        
-        
-        <input
+        <Button
           type="submit"
-          className="btn btn-primary float-right"
+          className="btn btn-primary float-center"
           value="Submit"
-        />
-        <button
-          className="btn btn-link float-left"
-          onClick={this.handleClearForm}
         >
-          Clear form
-        </button>
+          Submit
+        </Button>
+        <br />
+        <br />
+        <br />
       </form>
     );
   }
 }
 
-export default FormContainer;
+export default FormContainerReceive;

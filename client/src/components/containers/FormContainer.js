@@ -1,19 +1,15 @@
 import React, { Component } from "react";
-import CheckboxOrRadioGroup from "../CheckboxOrRadioGroup";
 import SingleInput from "../SingleInput";
-import Select from "../Select";
-import "../../App.css"
+import "../../App.css";
+import { Button } from "reactstrap";
+
 class FormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ownerName: "",
       businessName: "",
-      businessAddress: "",
-      foodSelections: [],
-      selectedFoods: [],
-      businessOptions: [],
-      ownerBusinessTypeSelection: ""
+      businessAddress: ""
     };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
@@ -22,8 +18,7 @@ class FormContainer extends Component {
     this.handleBusinessAddressChange = this.handleBusinessAddressChange.bind(
       this
     );
-    this.handleBusinessTypeSelect = this.handleBusinessTypeSelect.bind(this);
-    this.handleFoodSelection = this.handleFoodSelection.bind(this);
+    this.handleSummaryChange = this.handleSummaryChange.bind(this);
   }
   componentDidMount() {
     fetch("./fake_db.json")
@@ -33,10 +28,7 @@ class FormContainer extends Component {
           ownerName: data.ownerName,
           businessName: data.businessName,
           businessAddress: data.businessAddress,
-          foodSelections: data.foodSelections,
-          selectedFoods: data.selectedFoods,
-          businessOptions: data.businessOptions,
-          ownerBusinessTypeSelection: data.ownerBusinessTypeSelection
+          summary: data.summary
         });
       });
   }
@@ -55,33 +47,17 @@ class FormContainer extends Component {
       console.log("business address:", this.state.businessAddress)
     );
   }
-  handleBusinessTypeSelect(e) {
-    this.setState({ ownerBusinessTypeSelection: e.target.value }, () =>
-      console.log("business type", this.state.ownerBusinessTypeSelection)
-    );
-  }
-  handleFoodSelection(e) {
-    const newSelection = e.target.value;
-    let newSelectionArray;
-    if (this.state.selectedFoods.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.selectedFoods.filter(
-        s => s !== newSelection
-      );
-    } else {
-      newSelectionArray = [...this.state.selectedFoods, newSelection];
-    }
-    this.setState({ selectedFoods: newSelectionArray }, () =>
-      console.log("pet selection", this.state.selectedFoods)
-    );
+  handleSummaryChange(e) {
+    this.setState({ summary: e.target.value }, () => {
+      console.log("summary", this.state.summary);
+    });
   }
   handleClearForm(e) {
     e.preventDefault();
     this.setState({
       ownerName: "",
       businessName: "",
-      businessAddress: "",
-      selectedFoods: [],
-      ownerBusinessTypeSelection: ""
+      businessAddress: ""
     });
   }
   handleFormSubmit(e) {
@@ -91,9 +67,17 @@ class FormContainer extends Component {
       ownerName: this.state.ownerName,
       businessName: this.state.businessName,
       businessAddress: this.state.businessAddress,
-      selectedFoods: this.state.selectedFoods,
-      ownerBusinessTypeSelection: this.state.ownerBusinessTypeSelection
+      summary: this.state.summary
     };
+
+    axios({
+      method: "post",
+      url: "/login",
+      data: {
+        firstName: "Finn",
+        lastName: "Williams"
+      }
+    });
 
     console.log("Send this in a POST request:", formPayload);
     this.handleClearForm(e);
@@ -105,12 +89,11 @@ class FormContainer extends Component {
         <SingleInput
           inputType={"text"}
           // title={"Contact Name"}
-          name={"name"}
+          name={"ownerName"}
           controlFunc={this.handleFullNameChange}
           content={this.state.ownerName}
           placeholder={"first and last name"}
           className="inputArea"
-          
         />
         <SingleInput
           inputType={"text"}
@@ -120,7 +103,7 @@ class FormContainer extends Component {
           content={this.state.businessName}
           placeholder={"Non-Profit name"}
         />
-        <SingleInput 
+        <SingleInput
           inputType={"text"}
           // title={"Non-Profit Address"}
           name={"businessAddress"}
@@ -128,29 +111,22 @@ class FormContainer extends Component {
           content={this.state.businessAddress}
           placeholder={"Non-Profit address"}
         />
-        
-        {/* <CheckboxOrRadioGroup
-          title={
-            "Which kinds of foods would you like to donate?"
-          }
-          setName={"foods"}
-          type={"checkbox"}
-          controlFunc={this.handleFoodSelection}
-          options={this.state.foodSelections}
-          selectedOptions={this.state.selectedFoods}
+
+        <SingleInput
+          inputType={"text"}
+          name={"summary"}
+          controlFunc={this.handleSummaryChange}
+          content={this.state.summary}
+          placeholder={"Summary of what foods you would be donating"}
         />
-        <input
+
+        <Button
           type="submit"
-          className="btn btn-primary float-right"
+          className="btn btn-primary float-center"
           value="Submit"
-        />
-        <button
-          className="btn btn-link float-left"
-          onClick={this.handleClearForm}
         >
-          Clear form
-        </button> */}
-        <input class="textArea" type="textarea" placeholder="Type a breif summary of available foods" ></input>
+          Submit
+        </Button>
       </form>
     );
   }

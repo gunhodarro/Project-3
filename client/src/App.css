@@ -1,4 +1,3 @@
-
 .App {
   text-align: center;
 }
@@ -8,58 +7,50 @@
   height: 80px;
 }
 
-
-
 .App-intro {
   font-size: large;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-
- .cardText{
-   color:black;
-   /* background-color:darkgreen; */
-font-size: 18px;
-
+.cardText {
+  color: black;
+  /* background-color:darkgreen; */
+  font-size: 18px;
 }
 
-
-.button2{
+.button2 {
   background-color: darkgreen;
   color: white;
   width: 100px;
   height: 50px;
-
 }
 
 .mapp {
-
-   margin: 0% 0% 0% 0%;
-  
-
-
-
-  
+  margin: 0% 0% 0% 0%;
 }
 
-.card{
-border: none;
-background-color: #0375B4;
+.card {
+  border: none;
+  background-color: #0375b4;
 }
 
-.container{
+.container {
   text-align: center;
 }
 
-.textArea{
+.textArea {
   height: 200px;
   width: 30%;
 }
 
-.form-input{
+.form-input {
   width: 30%;
-
+}
