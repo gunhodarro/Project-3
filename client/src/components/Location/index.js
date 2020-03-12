@@ -1,9 +1,11 @@
-import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
+import { GoogleApiWrapper, Map, Marker, InfoWindow } from 'google-maps-react';
 import React from 'react'
  
 
 export class MapContainer extends React.Component {
-    state = {}
+  state = {
+ 
+  };
 
     componentDidMount() {
         console.log('mounted')
@@ -11,6 +13,28 @@ export class MapContainer extends React.Component {
              console.log('setting coords')
              window.navigator.geolocation.getCurrentPosition(c => this.setState({x: c.coords.latitude, y: c.coords.longitude}))
             }
+        }
+
+        onMarkerClick = (arg1, arg2, arg3, arg4) => {
+          console.log("complete");
+          this.setState({
+            activeMarker: arg2,
+            selectedPlace: arg1,
+            showingInfo: true
+          })
+        }
+
+        onClicky = (arg1, arg2) => {
+          console.log(arg1);
+          console.log(arg2);
+        }
+
+        onInfoClose = () => {
+          this.setState({
+            activeMarker: null,
+      
+            showingInfo: false
+          })
         }
 
     render() {
@@ -27,6 +51,8 @@ export class MapContainer extends React.Component {
 
         return (
             <div>
+              
+      
             {Object.keys(this.state).length !== 0 ?
          <Map
           google={this.props.google}
@@ -37,17 +63,28 @@ export class MapContainer extends React.Component {
           }}
           zoom={10}
         >
+         
+          <Marker name={"Community Ministry"} key={1} position={pos1} onClick={this.onMarkerClick}/>
+          <Marker name={"Thorton Community Food Bank"} key={2} position={pos2} onClick={this.onMarkerClick} />
+          <Marker name={"Hunger Free Colorado"} key={3} position={pos3} onClick={this.onMarkerClick} />
+          <Marker name={"Montbello Cooperative Ministries"} key={4} position={pos4} onClick={this.onMarkerClick} />
+            
+          <InfoWindow
+            marker={this.state.activeMarker}
+            onClose={this.onInfoClose}
+            visible={this.state.showingInfo}>
+              <div>
+                <h1>{this.state.selectedPlace && this.state.selectedPlace.name && this.state.selectedPlace.name}</h1>
+              </div>
+          </InfoWindow>
           
-          <Marker position={pos1} />
-          <Marker position={pos2} />
-          <Marker position={pos3} />
-          <Marker position={pos4} />
           </Map> :
           <></>
             }
             </div>
         )
     }
+    
 }
 
 export default GoogleApiWrapper({apiKey: "AIzaSyCkpbSBjH7S4fh4eBXpBSMRpbJFWs6_HvM"})(MapContainer)
