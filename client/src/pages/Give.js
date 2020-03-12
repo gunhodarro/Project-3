@@ -13,7 +13,7 @@ function Give() {
          <Header />
          <h1>Give page</h1>
          <FormContainer />
-         <Link to = '/Donations'><Button className="button2">Go to Donations</Button></Link>
+         <Link to = '/Donations'><Button className="button3">Go</Button></Link>
          <Footer />
         
         </>

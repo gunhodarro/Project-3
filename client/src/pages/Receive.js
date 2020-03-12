@@ -13,7 +13,7 @@ function Receive() {
       <Header />
       <h1>Receive Page</h1>
       <FormContainerReceive />
-      <Link to = '/Donations'><Button className="button2">Go to Donations</Button></Link>
+      <Link to = '/Donations'><Button className="button3">Go</Button></Link>
       <Footer />
     </>
   );

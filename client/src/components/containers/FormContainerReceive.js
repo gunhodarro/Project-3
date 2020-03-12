@@ -104,41 +104,41 @@ class FormContainer extends Component {
         <h5>Food Donation Form</h5>
         <SingleInput
           inputType={"text"}
-          title={"Contact Name"}
+          // title={"Contact Name"}
           name={"name"}
           controlFunc={this.handleFullNameChange}
           content={this.state.ownerName}
-          placeholder={"Type first and last name here"}
+          placeholder={"Contact Name"}
         />
         <SingleInput
           inputType={"text"}
-          title={"Non-Profit Name"}
+          // title={"Non-Profit Name"}
           name={"business"}
           controlFunc={this.handleBusinessNameChange}
           content={this.state.businessName}
-          placeholder={"Type business name here"}
+          placeholder={"Non-Profit Name"}
         />
         <SingleInput
           inputType={"text"}
-          title={"Non-profit Address"}
+          // title={"Non-profit Address"}
           name={"businessAddress"}
           controlFunc={this.handleBusinessAddressChange}
           content={this.state.businessAddress}
-          placeholder={"Type business address here"}
+          placeholder={"Non-profit Address"}
         />
         
         
-        <input
+        {/* <input
           type="submit"
           className="btn btn-primary float-right"
           value="Submit"
-        />
-        <button
+        /> */}
+        {/* <button
           className="btn btn-link float-left"
           onClick={this.handleClearForm}
         >
           Clear form
-        </button>
+        </button> */}
       </form>
     );
   }
