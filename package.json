@@ -25,6 +25,7 @@
     "fs": "0.0.1-security",
     "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
+    "mysql2": "^2.1.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^15.3.2",

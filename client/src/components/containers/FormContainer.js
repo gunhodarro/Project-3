@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SingleInput from "../SingleInput";
 import "../../App.css";
 import { Button } from "reactstrap";
+import axios from "axios";
 
 class FormContainer extends Component {
   constructor(props) {
@@ -57,7 +58,8 @@ class FormContainer extends Component {
     this.setState({
       ownerName: "",
       businessName: "",
-      businessAddress: ""
+      businessAddress: "",
+      summary: ""
     });
   }
   handleFormSubmit(e) {
@@ -70,14 +72,15 @@ class FormContainer extends Component {
       summary: this.state.summary
     };
 
-    axios({
-      method: "post",
-      url: "/login",
-      data: {
-        firstName: "Finn",
-        lastName: "Williams"
-      }
-    });
+    console.log(formPayload);
+    axios
+      .post("/api/donor", formPayload)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
 
     console.log("Send this in a POST request:", formPayload);
     this.handleClearForm(e);
@@ -111,7 +114,6 @@ class FormContainer extends Component {
           content={this.state.businessAddress}
           placeholder={"Non-Profit address"}
         />
-
         <SingleInput
           inputType={"text"}
           name={"summary"}
@@ -119,14 +121,17 @@ class FormContainer extends Component {
           content={this.state.summary}
           placeholder={"Summary of what foods you would be donating"}
         />
-
-        <Button
+        <input
           type="submit"
-          className="btn btn-primary float-center"
+          className="btn btn-primary float-right"
           value="Submit"
+        />
+        <button
+          className="btn btn-link float-left"
+          onClick={this.handleClearForm}
         >
-          Submit
-        </Button>
+          Clear form
+        </button>
       </form>
     );
   }
