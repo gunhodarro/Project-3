@@ -5,6 +5,8 @@ import Footer from  "../components/Footer"
 import Location from "../components/Location"
 import {Row , Col} from "reactstrap"
 import DonationCard from "../components/DonationCard"
+import DonationCard2 from "../components/DonationCard2"
+import DonationCard3 from "../components/DonationCard3"
 import "../App.css"
 
 function Donations() {
@@ -23,11 +25,11 @@ function Donations() {
             </Col>
 
             <Col>
-            <DonationCard />
+            <DonationCard2 />
             </Col>
             
             <Col>
-            <DonationCard />
+            <DonationCard3 />
             </Col>
          </Row>
       
