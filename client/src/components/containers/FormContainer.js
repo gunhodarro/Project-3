@@ -73,14 +73,13 @@ class FormContainer extends Component {
     };
 
     console.log(formPayload);
-    axios
-      .post("/api/donor", formPayload)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    axios.post("/api/donor", formPayload);
+    // .then(function(response) {
+    //   console.log(response);
+    // })
+    // .catch(function(error) {
+    //   console.log(error);
+    // });
 
     console.log("Send this in a POST request:", formPayload);
     this.handleClearForm(e);

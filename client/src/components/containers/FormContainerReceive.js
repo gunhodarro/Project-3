@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SingleInput from "../SingleInput";
 // import { Link } from react-router-dom;
 import { Button } from "reactstrap";
+import axios from "axios";
 
 class FormContainerReceive extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class FormContainerReceive extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleFullNameChange = this.handleFullNameChange.bind(this);
-    this.handleCharityName = this.handleCharityNameChange.bind(this);
+    this.handleCharityNameChange = this.handleCharityNameChange.bind(this);
     this.handleCharityAddressChange = this.handleCharityAddressChange.bind(
       this
     );
@@ -61,6 +62,8 @@ class FormContainerReceive extends Component {
       charityName: this.state.charityName,
       charityAddress: this.state.charityAddress
     };
+
+    axios.post("/api/donee", formPayload);
 
     console.log("Send this in a POST request:", formPayload);
     this.handleClearForm(e);

@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     businessName: DataTypes.STRING,
     businessAddress: DataTypes.STRING,
-    foodList: DataTypes.STRING
+    summary: DataTypes.STRING
   });
   return Donor;
 };
