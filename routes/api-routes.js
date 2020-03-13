@@ -3,7 +3,7 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-  app.get("/api/donor", function(req, res) {
+  app.get("/api/donors", function(req, res) {
     db.Donor.findAll({}).then(function(dbDonors) {
       res.json(dbDonors);
     });
