@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SingleInput from "../SingleInput";
-// import { Link } from react-router-dom;
+import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import axios from "axios";
 
