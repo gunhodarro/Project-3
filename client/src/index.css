@@ -5,3 +5,16 @@ body {
   background-color: #e0cf2e;
 }
 
+.headerH2{
+  padding-top: 40px;
+}
+
+#toggler{
+  margin-top: 13px;
+  background-color: darkgreen;
+}
+
+.mission{
+  background-color: darkgreen;
+  color: #fff
+}
